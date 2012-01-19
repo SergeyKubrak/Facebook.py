@@ -121,3 +121,17 @@ def send_dialog_url(app_id, redirect_uri, display="page", to="", link="www.googl
     query['description'] = description
     
     return new_url + "?" + urllib.urlencode(query)
+    
+def authenticate(client_id, redirect_uri, client_secret, code):
+    format_url = urlparse.urlparse(authenticate_format)
+    new_url = format_url.scheme + ":" + "//" + format_url.netloc + format_url.path
+    query = urlparse.parse_qs(format_url.query)
+    
+    query['client_id'] = client_id
+    query['redirect_uri'] = redirect_uri
+    query['client_secret'] = client_secret
+    query['code'] = code
+    
+    result = urllib2.urlopen(new_url, urllib.urlencode(query)).read()
+
+    return urlparse.parse_qs(result).get('access_token')
