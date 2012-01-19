@@ -12,13 +12,11 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
    
-import base64
-import os
-import os.path
-import simplejson as json
+   
 import urllib
 import urllib2
 import urlparse
+
 
 add_to_page_dialog_url_format = "https://www.facebook.com/dialog/pagetab?app_id=APP_ID&display=popup&next=REDIRECT_URI"
 feed_dialog_url_format = "https://www.facebook.com/dialog/feed?app_id=APP_ID&redirect_uri=REDIRECT_URI&display=DISPLAY_MODE&from=POSTING_USER&to=RECEIVING_USER&message=DEFAULT_TEXT&link=ATTACHED_LINK_URI&picture=PICTURE_URL&source=MEDIA_URL&name=NAME_OF_LINK&caption=CAPTION_OF_LINK&description=LINK_DESCRIPTION&properties=JSON_PROPERTIES&actions=JSON_ACTIONS&ref=TEXT_REFERENCE"
